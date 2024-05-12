@@ -1,0 +1,4 @@
+fast-dash
+langchain
+langchain_openai
+python-dotenv
