@@ -1,6 +1,6 @@
-# Fast Dash LLM Streaming
+# Compare LLMs with Fast Dash and LangChain
 
-Template to stream LLM responses with Fast Dash and LangChain. LangChain has many direct closed-source LLM integrations and it supports open-source integrations through Together AI.
+Template to compare LLM responses with Fast Dash and LangChain. LangChain has many direct closed-source LLM integrations and it supports open-source integrations through Together AI.
 
 ## Running this app
 

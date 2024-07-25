@@ -22,14 +22,14 @@ prompt = ChatPromptTemplate.from_template("You are a helpful and kind AI assista
 
 response_component = dmc.Text(ta="left", size="lg")
 
-def streaming_responses_with_fast_dash(prompt: str) -> (response_component,
+def compare_LLMs_with_fast_dash(prompt: str) -> (response_component,
                                                         response_component,
                                                         response_component):
     "Template for streaming responses with Fast Dash and LangChain"
     gpt_4o = claude_3_opus = llama_3_1_7B = "None"
     return gpt_4o, claude_3_opus, llama_3_1_7B
 
-app = FastDash(streaming_responses_with_fast_dash, theme="sandstone")
+app = FastDash(compare_LLMs_with_fast_dash, title="Compare LLMs With Fast Dash", theme="sandstone")
 app = derive_streaming_dash_app(app)
 
 
