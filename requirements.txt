@@ -1,4 +1,5 @@
 fast-dash
 langchain
 langchain_openai
+langchain-together
 python-dotenv
