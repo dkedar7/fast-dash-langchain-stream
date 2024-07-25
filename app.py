@@ -3,6 +3,7 @@ from fast_dash import FastDash, dmc
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
 from langchain_together import ChatTogether
 
 from dotenv import load_dotenv
@@ -25,26 +26,26 @@ def streaming_responses_with_fast_dash(prompt: str) -> (response_component,
                                                         response_component,
                                                         response_component):
     "Template for streaming responses with Fast Dash and LangChain"
-    gpt_4_turbo = gpt_4o = llama_3_1_7B = "None"
-    return gpt_4_turbo, gpt_4o, llama_3_1_7B
+    gpt_4o = claude_3_opus = llama_3_1_7B = "None"
+    return gpt_4o, claude_3_opus, llama_3_1_7B
 
 app = FastDash(streaming_responses_with_fast_dash, theme="sandstone")
 app = derive_streaming_dash_app(app)
 
 
 # Streaming function 1
-def prompt_gpt_4_turbo(user_prompt):
+def prompt_gpt_4o(user_prompt):
 
-    model = ChatOpenAI(model="gpt-4-turbo", temperature=0)
+    model = ChatOpenAI(model="gpt-4o", temperature=0)
     parser = StrOutputParser()
 
     chain = prompt | model | parser
 
     return chain.stream({"user_prompt": user_prompt})
 
-def prompt_gpt_4_turbo(user_prompt):
+def prompt_claude_3_opus(user_prompt):
 
-    model = ChatOpenAI(model="gpt-4o", temperature=0)
+    model = ChatAnthropic(model='claude-3-opus-20240229')
     parser = StrOutputParser()
 
     chain = prompt | model | parser
@@ -63,8 +64,8 @@ def prompt_llama3_1(user_prompt):
 
 
 # Enable streaming in the app
-add_streaming(app, prompt_gpt_4_turbo, 1)
-add_streaming(app, prompt_gpt_4_turbo, 2)
+add_streaming(app, prompt_gpt_4o, 1)
+add_streaming(app, prompt_claude_3_opus, 2)
 add_streaming(app, prompt_llama3_1, 3)
 
 

@@ -2,4 +2,5 @@ fast-dash
 langchain
 langchain_openai
 langchain-together
+langchain-anthropic
 python-dotenv
